@@ -23,7 +23,7 @@ export function parseSession(raw: string | null, now: number): Session | null {
 export async function matchesSecret(answer: string): Promise<boolean> {
   const hash = await crypto.subtle.digest(
     "SHA-256",
-    new TextEncoder().encode(answer),
+    new TextEncoder().encode(answer.toLowerCase())
   );
   return (
     Array.from(new Uint8Array(hash), (byte) =>

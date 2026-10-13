@@ -42,27 +42,27 @@ export function useSessionController(protectedPage = false) {
   const login = useCallback(
     async (profile: Profile | null, answer: string) => {
       if (!profile) {
-        setError("Choose Sa-chan or Ku-chan first.");
+        setError("まずは、さーちゃんかくーちゃんを選んでね。");
         return;
       }
       setBusy(true);
       setError("");
       try {
         if (!(await matchesSecret(answer))) {
-          setError("That’s not our secret. Try again, my love.");
+          setError("あれ、ちょっと違うみたい。もう一回試してみてね♡");
           return;
         }
         const next = { profile, expiresAt: Date.now() + SESSION_DURATION };
         try {
           localStorage.setItem(SESSION_KEY, JSON.stringify(next));
         } catch {
-          setError("Please allow browser storage to enter our world.");
+          setError("ブラウザのストレージを有効にして、もう一度試してね。");
           return;
         }
         setSession(next);
         router.replace("/home/");
       } catch {
-        setError("Could not check your answer. Please try again.");
+        setError("うまく確認できなかったみたい。もう一度試してね。");
       } finally {
         setBusy(false);
       }
@@ -78,6 +78,6 @@ export function useSessionController(protectedPage = false) {
     setSession(null);
     router.replace("/");
   }
-  
+
   return { session, ready, error, busy, login, logout };
 }
