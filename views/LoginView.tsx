@@ -14,7 +14,7 @@ export default function LoginView() {
     return (
       <main className="grid min-h-screen place-items-center">
         <p role="status" className="font-serif text-xl text-rust">
-          Opening our little world…
+          ふたりの世界へ、もうすぐ…
         </p>
       </main>
     );

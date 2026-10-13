@@ -26,7 +26,7 @@ export default function ReunionView() {
     return (
       <main className="grid min-h-screen place-items-center">
         <p role="status" className="font-serif text-xl text-rust">
-          Opening our little world…
+          ふたりの世界へ、もうすぐ…
         </p>
       </main>
     );
@@ -67,7 +67,10 @@ function Dashboard({
           </span>
         </a>
 
-        <nav aria-label="メインナビゲーション" className="text-sm tracking-[2px] gap-6">
+        <nav
+          aria-label="メインナビゲーション"
+          className="text-sm tracking-[2px] gap-6"
+        >
           <a href="#countdown">会える日まで</a>
 
           <a href="#story">ふたりの物語</a>

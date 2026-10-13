@@ -208,6 +208,21 @@
   .timeline {
     @apply relative mt-12 grid grid-cols-1 gap-9 md:grid-cols-4 md:gap-10;
   }
+  .timeline > .reveal {
+  @apply h-full;
+}
+
+.timeline article {
+  @apply flex h-full flex-col items-center;
+}
+
+.timeline article p {
+  @apply mb-6;
+}
+
+.timeline .days-ago {
+  @apply mt-auto;
+}
   .timeline::before {
     content: "";
     @apply absolute top-7 right-[15%] left-[15%] hidden h-px bg-line md:block;
