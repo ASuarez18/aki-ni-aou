@@ -15,10 +15,11 @@ import {
 import { useReunionController } from "@/controllers/useReunionController";
 import { useSessionController } from "@/controllers/useSessionController";
 
-import { daysSince, milestones } from "@/models/reunion";
+import { daysSince, milestones, Profile } from "@/models/reunion";
 
 import Reveal from "./components/Reveal";
 import FallingLeaves from "./components/FallingLeaves";
+import AnniversaryLetter from "./components/AnniversaryLetter";
 
 export default function ReunionView() {
   const auth = useSessionController(true);
@@ -37,7 +38,7 @@ function Dashboard({
   profile,
   logout,
 }: {
-  profile: string;
+  profile: Profile | null;
   logout: () => void;
 }) {
   const c = useReunionController();
@@ -79,6 +80,7 @@ function Dashboard({
         </nav>
 
         <div className="flex items-center gap-3">
+          <AnniversaryLetter profile={profile} />
           <button
             onClick={logout}
             className="flex items-center gap-2  text-muted hover:text-rust text-sm tracking-[2px] transition-colors"

@@ -379,6 +379,20 @@
     transform: translate3d(65px, 115vh, 0) rotate(250deg);
   }
 }
+@keyframes letter-heartbeat {
+  0%, 35%, 100% {
+    transform: scale(1);
+  }
+  10%, 25% {
+    transform: scale(1.18);
+  }
+  18% {
+    transform: scale(1.1);
+  }
+}
+@utility animate-letter-heartbeat {
+  animation: letter-heartbeat 2.8s ease-in-out infinite;
+}
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
